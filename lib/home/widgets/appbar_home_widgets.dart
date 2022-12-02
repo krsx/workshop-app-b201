@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workshop_app_b201/themes/color_themes.dart';
 
 Widget appBarHome() {
-  return AppBar(
+  return SliverAppBar(
     backgroundColor: ColorTheme.whiteColor,
     centerTitle: true,
     automaticallyImplyLeading: false,

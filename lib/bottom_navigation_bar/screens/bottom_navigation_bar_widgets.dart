@@ -20,6 +20,7 @@ class _RouteScreenState extends State<RouteScreen> {
   Widget build(BuildContext context) {
     Widget bottomNavigationBar() {
       return BottomNavigationBar(
+          elevation: 5,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
@@ -80,15 +81,15 @@ class _RouteScreenState extends State<RouteScreen> {
     Widget body() {
       switch (currentIndex) {
         case 0:
-          return HomeScreens();
+          return const HomeScreens();
         case 1:
-          return SearchScreen();
+          return const SearchScreen();
         case 2:
-          return NotificationScreen();
+          return const NotificationScreen();
         case 3:
-          return MessageScreen();
+          return const MessageScreen();
         default:
-          return SizedBox();
+          return const SizedBox();
       }
     }
 
