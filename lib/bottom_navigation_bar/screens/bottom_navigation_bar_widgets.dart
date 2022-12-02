@@ -32,46 +32,70 @@ class _RouteScreenState extends State<RouteScreen> {
               }),
           items: const [
             BottomNavigationBarItem(
-              activeIcon: Icon(
-                Icons.house_rounded,
-                size: 32,
+              activeIcon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.house_rounded,
+                  size: 32,
+                ),
               ),
-              icon: Icon(
-                Icons.house_outlined,
-                size: 32,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              activeIcon: Icon(
-                Icons.search_rounded,
-                size: 32,
-              ),
-              icon: Icon(
-                Icons.search_outlined,
-                size: 32,
+              icon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.house_outlined,
+                  size: 32,
+                ),
               ),
               label: '',
             ),
             BottomNavigationBarItem(
-              activeIcon: Icon(
-                Icons.notifications_rounded,
-                size: 32,
+              activeIcon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.search_rounded,
+                  size: 32,
+                ),
               ),
-              icon: Icon(
-                Icons.notifications_outlined,
-                size: 32,
+              icon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.search_outlined,
+                  size: 32,
+                ),
               ),
               label: '',
             ),
             BottomNavigationBarItem(
-              activeIcon: Icon(
-                Icons.mail_rounded,
-                size: 32,
+              activeIcon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.notifications_rounded,
+                  size: 32,
+                ),
               ),
-              icon: Icon(
-                Icons.mail_outlined,
-                size: 32,
+              icon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.notifications_outlined,
+                  size: 32,
+                ),
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              activeIcon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.mail_rounded,
+                  size: 32,
+                ),
+              ),
+              icon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Icon(
+                  Icons.mail_outlined,
+                  size: 32,
+                ),
               ),
               label: '',
             )

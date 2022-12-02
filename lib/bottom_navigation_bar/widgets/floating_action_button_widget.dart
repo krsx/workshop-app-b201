@@ -6,6 +6,10 @@ Widget floatingActionButton() {
     width: 60,
     height: 60,
     child: FloatingActionButton(
+      focusElevation: 8,
+      hoverElevation: 8,
+      disabledElevation: 8,
+      highlightElevation: 8,
       elevation: 0,
       backgroundColor: ColorTheme.blueColor,
       onPressed: () {},
