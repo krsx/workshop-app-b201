@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workshop_app_b201/bottom_navigation_bar/widgets/floating_action_button_widget.dart';
 import 'package:workshop_app_b201/home/screens/home_screens.dart';
-import 'package:workshop_app_b201/message/screens/message_screen.dart';
-import 'package:workshop_app_b201/notification/screens/notification_screen.dart';
 import 'package:workshop_app_b201/search/screens/search_screen.dart';
 import 'package:workshop_app_b201/themes/color_themes.dart';
 
@@ -19,87 +17,96 @@ class _RouteScreenState extends State<RouteScreen> {
   @override
   Widget build(BuildContext context) {
     Widget bottomNavigationBar() {
-      return BottomNavigationBar(
-          elevation: 5,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
-          selectedItemColor: ColorTheme.blackColor,
-          unselectedItemColor: ColorTheme.lightGrayColor,
-          onTap: (index) => setState(() {
-                currentIndex = index;
-              }),
-          items: const [
-            BottomNavigationBarItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.house_rounded,
-                  size: 32,
+      return Container(
+        decoration: const BoxDecoration(
+          color: ColorTheme.whiteColor,
+          border: Border(
+            top: BorderSide(color: ColorTheme.extraLightGrayColor, width: 1),
+          ),
+        ),
+        child: BottomNavigationBar(
+            backgroundColor: ColorTheme.whiteColor,
+            elevation: 5,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentIndex,
+            selectedItemColor: ColorTheme.blackColor,
+            unselectedItemColor: ColorTheme.lightGrayColor,
+            onTap: (index) => setState(() {
+                  currentIndex = index;
+                }),
+            items: [
+              BottomNavigationBarItem(
+                activeIcon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/home_fill_icon.png",
+                    width: 24,
+                  ),
                 ),
-              ),
-              icon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.house_outlined,
-                  size: 32,
+                icon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/home_icon.png",
+                    width: 24,
+                  ),
                 ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.search_rounded,
-                  size: 32,
+              BottomNavigationBarItem(
+                activeIcon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/search_fill_icon.png",
+                    width: 24,
+                  ),
                 ),
-              ),
-              icon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.search_outlined,
-                  size: 32,
+                icon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/search_icon.png",
+                    width: 24,
+                  ),
                 ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.notifications_rounded,
-                  size: 32,
+              BottomNavigationBarItem(
+                activeIcon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/notif_fill_icon.png",
+                    width: 24,
+                  ),
                 ),
-              ),
-              icon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.notifications_outlined,
-                  size: 32,
+                icon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/notif_icon.png",
+                    width: 24,
+                  ),
                 ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.mail_rounded,
-                  size: 32,
+              BottomNavigationBarItem(
+                activeIcon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/mail_fill_icon.png",
+                    width: 24,
+                  ),
                 ),
-              ),
-              icon: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Icon(
-                  Icons.mail_outlined,
-                  size: 32,
+                icon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: Image.asset(
+                    "assets/images/icons/mail_icon.png",
+                    width: 24,
+                  ),
                 ),
-              ),
-              label: '',
-            )
-          ]);
+                label: '',
+              )
+            ]),
+      );
     }
 
     Widget body() {
@@ -109,9 +116,9 @@ class _RouteScreenState extends State<RouteScreen> {
         case 1:
           return const SearchScreen();
         case 2:
-          return const NotificationScreen();
+          return const SizedBox();
         case 3:
-          return const MessageScreen();
+          return const SizedBox();
         default:
           return const SizedBox();
       }
