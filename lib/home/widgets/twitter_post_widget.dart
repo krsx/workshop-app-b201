@@ -2,8 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:workshop_app_b201/themes/color_themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TwitterPost extends StatelessWidget {
-  const TwitterPost({super.key});
+class TwitterPost extends StatefulWidget {
+  final String profileImg;
+  final String name;
+  final String username;
+  final int time;
+  final bool isVerified;
+  final String? postImg;
+  final String caption;
+
+  const TwitterPost({
+    super.key,
+    required this.profileImg,
+    required this.name,
+    required this.username,
+    required this.time,
+    required this.isVerified,
+    this.postImg,
+    required this.caption,
+  });
+
+  @override
+  State<TwitterPost> createState() => _TwitterPostState();
+}
+
+class _TwitterPostState extends State<TwitterPost> {
+  int likes = 0;
+  bool click = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +48,7 @@ class TwitterPost extends StatelessWidget {
           Column(
             children: [
               Image.asset(
-                "assets/images/profile_2.png",
+                widget.profileImg,
                 width: 38,
               )
             ],
@@ -33,23 +58,37 @@ class TwitterPost extends StatelessWidget {
           ),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "KCRIMSON_69",
-                      style: GoogleFonts.inter(fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      "@bandarfilmindo",
-                      style: GoogleFonts.inter(
-                        fontWeight: FontWeight.w400,
-                        color: ColorTheme.darkGrayColor,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          widget.name,
+                          style: GoogleFonts.inter(fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        widget.isVerified
+                            ? Image.asset(
+                                "assets/images/icons/verif_icon.png",
+                                width: 16,
+                              )
+                            : const SizedBox(),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          widget.username,
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            color: ColorTheme.darkGrayColor,
+                          ),
+                        ),
+                      ],
                     ),
                     // RichText(text: TextSpan(children: [])),
                     const SizedBox(
@@ -67,7 +106,7 @@ class TwitterPost extends StatelessWidget {
                       width: 4,
                     ),
                     Text(
-                      "11 jam",
+                      "${widget.time} jam",
                       style: GoogleFonts.inter(
                         fontWeight: FontWeight.w400,
                         color: ColorTheme.darkGrayColor,
@@ -85,7 +124,7 @@ class TwitterPost extends StatelessWidget {
                   height: 4,
                 ),
                 Text(
-                  "Halo semuanya ini merupakan dummy text yang dibuat khusus untuk memastikan apakah layout sudah sama dengan UI pada TWITTER itu sendiri!",
+                  widget.caption,
                   style: GoogleFonts.inter(
                     color: ColorTheme.blackColor,
                     fontWeight: FontWeight.w400,
@@ -95,17 +134,19 @@ class TwitterPost extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    "assets/images/post_image_1.png",
-                  ),
-                ),
+                (widget.postImg == null)
+                    ? SizedBox()
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          widget.postImg!,
+                        ),
+                      ),
                 const SizedBox(
-                  height: 12,
+                  height: 6,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
@@ -113,7 +154,7 @@ class TwitterPost extends StatelessWidget {
                           onTap: () {},
                           child: Image.asset(
                             "assets/images/icons/comment_icon.png",
-                            width: 20,
+                            width: 16,
                           ),
                         ),
                         const SizedBox(
@@ -134,7 +175,7 @@ class TwitterPost extends StatelessWidget {
                           onTap: () {},
                           child: Image.asset(
                             "assets/images/icons/retweet_icon.png",
-                            width: 20,
+                            width: 16,
                           ),
                         ),
                         const SizedBox(
@@ -152,19 +193,35 @@ class TwitterPost extends StatelessWidget {
                     Row(
                       children: [
                         GestureDetector(
-                          onTap: () {},
-                          child: Image.asset(
-                            "assets/images/icons/like_icon.png",
-                            width: 20,
-                          ),
+                          onTap: () {
+                            setState(() {
+                              click = !click;
+                              if (click) {
+                                likes++;
+                              } else {
+                                likes--;
+                              }
+                            });
+                          },
+                          child: click
+                              ? Image.asset(
+                                  "assets/images/icons/like_fill_icon.png",
+                                  width: 16,
+                                )
+                              : Image.asset(
+                                  "assets/images/icons/like_icon.png",
+                                  width: 16,
+                                ),
                         ),
                         const SizedBox(
                           width: 12,
                         ),
                         Text(
-                          "0",
+                          "$likes",
                           style: GoogleFonts.inter(
-                            color: ColorTheme.darkGrayColor,
+                            color: click
+                                ? ColorTheme.redColor
+                                : ColorTheme.darkGrayColor,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -174,7 +231,7 @@ class TwitterPost extends StatelessWidget {
                       onTap: () {},
                       child: Image.asset(
                         "assets/images/icons/share_icon.png",
-                        width: 20,
+                        width: 16,
                       ),
                     ),
                     const SizedBox(),

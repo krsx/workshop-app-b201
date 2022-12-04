@@ -13,9 +13,13 @@ Widget floatingActionButton() {
       elevation: 0,
       backgroundColor: ColorTheme.blueColor,
       onPressed: () {},
-      child: const Icon(
-        Icons.add_rounded,
-        size: 30,
+      // child: const Icon(
+      //   Icons.add_rounded,
+      //   size: 30,
+      // ),
+      child: Image.asset(
+        "assets/images/icons/tweet_icon.png",
+        width: 26,
       ),
     ),
   );
