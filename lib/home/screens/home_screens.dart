@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workshop_app_b201/bottom_navigation_bar/screens/bottom_navigation_bar_widgets.dart';
+import 'package:workshop_app_b201/route_screens/screens/route_screens.dart';
 import 'package:workshop_app_b201/home/widgets/twitter_post_widget.dart';
 
 import '../../themes/color_themes.dart';
@@ -23,53 +23,18 @@ class _HomeScreensState extends State<HomeScreens> {
           child: NestedScrollView(
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          // SliverAppBar(
-          //   floating: true,
-          //   snap: true,
-          //   backgroundColor: ColorTheme.whiteColor,
-          //   centerTitle: true,
-          //   automaticallyImplyLeading: false,
-          //   elevation: 0.4,
-          //   leading: Center(
-          //     child: Container(
-          //       decoration: BoxDecoration(
-          //         borderRadius: BorderRadius.circular(100),
-          //         color: ColorTheme.whiteColor,
-          //       ),
-          //       child: GestureDetector(
-          //         onTap: () {},
-          //         child: Image.asset(
-          //           "assets/images/profile_2.png",
-          //           width: 28,
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          //   title: Center(
-          //     child: Image.asset(
-          //       ('assets/images/twitter.png'),
-          //       width: 40,
-          //     ),
-          //   ),
-          //   actions: [
-          //     IconButton(
-          //       onPressed: () {},
-          //       icon: const Icon(
-          //         Icons.auto_awesome_outlined,
-          //         size: 28,
-          //         color: ColorTheme.blackColor,
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          appBarHome(),
+          Builder(
+            builder: (context) {
+              return appBarHome();
+            },
+          )
         ],
         body: ListView(
           children: const [
             TwitterPost(
               profileImg: "assets/images/profile_1.png",
               caption: "Ini adalah caption!",
-              isVerified: true,
+              isVerified: false,
               name: "Krisna Erlangga",
               time: 11,
               username: "krsx10",
@@ -94,7 +59,7 @@ class _HomeScreensState extends State<HomeScreens> {
             TwitterPost(
               profileImg: "assets/images/profile_2.png",
               caption: "Ini adalah caption omagaaaa!",
-              isVerified: true,
+              isVerified: false,
               name: "Putri Suwitanty",
               time: 12,
               username: "putrijelek",

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workshop_app_b201/themes/color_themes.dart';
 
-Widget floatingActionButton() {
+Widget floatingActionButton(BuildContext context) {
   return Container(
     width: 60,
     height: 60,
@@ -12,7 +12,9 @@ Widget floatingActionButton() {
       highlightElevation: 8,
       elevation: 0,
       backgroundColor: ColorTheme.blueColor,
-      onPressed: () {},
+      onPressed: () {
+        Scaffold.of(context).openDrawer();
+      },
       // child: const Icon(
       //   Icons.add_rounded,
       //   size: 30,

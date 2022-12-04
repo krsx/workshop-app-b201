@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workshop_app_b201/bottom_navigation_bar/widgets/floating_action_button_widget.dart';
+import 'package:workshop_app_b201/route_screens/widgets/drawer_navigation_widgets.dart';
+import 'package:workshop_app_b201/route_screens/widgets/floating_action_button_widget.dart';
 import 'package:workshop_app_b201/home/screens/home_screens.dart';
 import 'package:workshop_app_b201/search/screens/search_screen.dart';
 import 'package:workshop_app_b201/themes/color_themes.dart';
@@ -125,10 +126,12 @@ class _RouteScreenState extends State<RouteScreen> {
     }
 
     return Scaffold(
+      drawerEnableOpenDragGesture: true,
+      drawer: drawerNavigation(),
       body: body(),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       bottomNavigationBar: bottomNavigationBar(),
-      floatingActionButton: floatingActionButton(),
+      floatingActionButton: floatingActionButton(context),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:workshop_app_b201/bottom_navigation_bar/screens/bottom_navigation_bar_widgets.dart';
+import 'package:workshop_app_b201/route_screens/screens/route_screens.dart';
 import 'package:workshop_app_b201/home/screens/home_screens.dart';
 import 'package:workshop_app_b201/themes/color_themes.dart';
 

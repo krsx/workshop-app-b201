@@ -73,14 +73,14 @@ class _TwitterPostState extends State<TwitterPost> {
                           width: 4,
                         ),
                         widget.isVerified
-                            ? Image.asset(
-                                "assets/images/icons/verif_icon.png",
-                                width: 16,
+                            ? Padding(
+                                padding: const EdgeInsets.only(right: 5),
+                                child: Image.asset(
+                                  "assets/images/icons/verif_icon.png",
+                                  width: 16,
+                                ),
                               )
                             : const SizedBox(),
-                        const SizedBox(
-                          width: 4,
-                        ),
                         Text(
                           widget.username,
                           style: GoogleFonts.inter(
@@ -135,11 +135,14 @@ class _TwitterPostState extends State<TwitterPost> {
                   height: 8,
                 ),
                 (widget.postImg == null)
-                    ? SizedBox()
+                    ? const SizedBox()
                     : ClipRRect(
                         borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          widget.postImg!,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 6),
+                          child: Image.asset(
+                            widget.postImg!,
+                          ),
                         ),
                       ),
                 const SizedBox(
